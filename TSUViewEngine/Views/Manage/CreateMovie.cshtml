@@ -1,0 +1,26 @@
+﻿@model Movie
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form method="post" asp-controller="Manage" asp-action="CreateMovie">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ფილმის დამატება</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Thumb"></label>
+                    <input asp-for="Thumb" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">შენახვა</button>
+            </div>
+        </form>
+    </div>
+</div>

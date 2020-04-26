@@ -1,0 +1,32 @@
+﻿@model MovieVM
+@{
+    ViewData["Title"] = "Movie";
+    Layout = "_ManageLayout";
+}
+<div class="container mt-4">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">სათაური</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Movies)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <th scope="row">@item.Title</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        დამატება
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <partial name="~/Views/Manage/CreateMovie.cshtml" model="Model.Movie"/>
+    </div>
+</div>
