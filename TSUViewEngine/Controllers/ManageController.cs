@@ -32,5 +32,24 @@ namespace TSUViewEngine.Controllers
             _movieRepository.Create(movie);
             return RedirectToAction("Movie");
         }
+        public IActionResult Edit(int? Id)
+        {
+            var movie = _movieRepository.Movies.Where(x => x.Id == Id).FirstOrDefault();
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult Edit(Movie editedMovie)
+        {
+            var movie = _movieRepository.Movies.Where(x => x.Id == editedMovie.Id).FirstOrDefault();
+            movie.Title = editedMovie.Title;
+            movie.Thumb = editedMovie.Thumb;
+            return RedirectToAction(nameof(Movie));
+        }
+
+        public IActionResult Search(string searchString)
+        {
+            var movie = _movieRepository.Movies.Where(x => x.Title.Contains(searchString, StringComparison.InvariantCultureIgnoreCase));
+            return View(movie);
+        }
     }
 }

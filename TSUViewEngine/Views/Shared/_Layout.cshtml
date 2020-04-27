@@ -34,12 +34,14 @@
                         <a class="nav-link" href="#">სერიალები</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ფილმები</a>
+                        <a class="nav-link" asp-controller="Manage" asp-action="Movie">ფილმები</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="ძებნა" aria-label="ძებნა">
-                    <button bs-button-style="light" class="my-2 my-sm-0" type="submit">ძებნას</button>
+                <form class="form-inline my-2 my-lg-0" asp-controller="Manage" asp-action="Search" method="get">
+                    <p>
+                        <input placeholder="ძებნა" aria-label="ძებნა" type="text" name="SearchString">
+                        <button type="submit" value="Filter"  bs-button-style="light" class="my-2 my-sm-0" asp-controller="Manage" asp-action="Search" type="submit">ძებნას</button>
+                    </p>
                 </form>
             </div>
         </nav>

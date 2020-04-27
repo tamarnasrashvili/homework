@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TSUViewEngine.Models.Movie>
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<h1>მოძებნილი მასალა</h1>
+<hr />
+@if (Model.Count() == 0)
+{
+    <h3 class="text-uppercase" style="margin:20%">ფილმი ვერ მოიძებნა</h3>
+
+}
+@foreach (var item in Model)
+{
+    <div class="col">
+        <label class="h5" style="display:block">@item.Title</label>
+        <img src="@item.Thumb" alt="Alternate Text" />
+    </div>
+    <hr />
+}

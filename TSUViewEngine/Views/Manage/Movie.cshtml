@@ -14,10 +14,13 @@
         <tbody>
             @foreach (var item in Model.Movies)
             {
-                <tr>
-                    <th scope="row">@item.Id</th>
-                    <th scope="row">@item.Title</th>
-                </tr>
+            <tr>
+                <th scope="row">@item.Id</th>
+                <th scope="row">@item.Title</th>
+                <th scope="row">
+                    <a asp-action="Edit" asp-route-id="@item.Id">რედაქტირება</a>
+                </th>
+            </tr>
             }
         </tbody>
     </table>
